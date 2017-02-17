@@ -22,6 +22,11 @@ namespace SonOfCod.Controllers
             _userManager = userManager;
             _db = db;
         }
+
+        public SignupController()
+        {
+
+        }
         
         public IActionResult Create()
         {

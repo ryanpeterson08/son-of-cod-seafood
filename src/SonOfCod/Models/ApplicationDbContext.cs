@@ -14,6 +14,8 @@ namespace SonOfCod.Models
         {
 
         }
+        public DbSet<Newsletter> Newsletters { get; set; }
+        public DbSet<Signup> Signups { get; set; }
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
 
@@ -24,7 +26,11 @@ namespace SonOfCod.Models
             base.OnModelCreating(builder);
 
         }
-        public DbSet<Newsletter> Newsletters { get; set; }
-        public DbSet<Signup> Signups { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=SonOfCod;integrated security=True");
+        }
+
     }
 }
