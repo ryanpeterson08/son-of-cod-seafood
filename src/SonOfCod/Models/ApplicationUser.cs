@@ -8,6 +8,7 @@ namespace SonOfCod.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        public virtual Newsletter Newsletter { get; set; }
 
     }
 }
