@@ -44,11 +44,16 @@ namespace SonOfCod.Controllers
                 }
                 else
                 {
-                    return View();
+                    return RedirectToAction("Fail");
                 }
             }
-            return View();
+            return RedirectToAction("Fail");
 
+        }
+
+        public IActionResult Fail()
+        {
+            return View();
         }
 
         public IActionResult Index()
