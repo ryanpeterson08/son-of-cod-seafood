@@ -23,10 +23,10 @@ namespace SonOfCod.Controllers
             _db = db;
         }
 
-        public AccountController()
-        {
+        //public AccountController()
+        //{
 
-        }
+        //}
 
         public IActionResult Index()
         {

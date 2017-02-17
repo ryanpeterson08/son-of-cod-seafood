@@ -5,23 +5,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Son Of Cod Fisheries</h2>
+<h2>Fontaine Fisheries</h2>
+
+<div id="title-pic">
+  <img src="http://68.media.tumblr.com/tumblr_lxpnucpNZo1r2ja2fo3_1280.jpg" />  
+</div>
 
 @foreach(var newsItem in Model)
 {
-    <ul>
-        <li>@Html.DisplayFor(modelItem => newsItem.Body)</li>
-        <li>@Html.DisplayFor(modelItem => newsItem.FishOfTheMonth)</li>
-    </ul>
+    <div class="news-item">
+        <ul>
+            <li>@Html.DisplayFor(modelItem => newsItem.Body)</li>
+            <li>@Html.DisplayFor(modelItem => newsItem.FishOfTheMonth)</li>
+        </ul>
+    </div>
 }
 
 @Html.ActionLink("Add a Newsletter", "Create")<br />
-@Html.ActionLink("Signup for the Newsletter", "Create", "Signup")
+@Html.ActionLink("Signup for the Newsletter", "Create", "Signup")<br />
 
 @using (Html.BeginForm("LogOff", "Account"))
 {
 
-    <input type="submit" class="btn btn-default" value="Log out" />
+    <input type="submit" class="btn" value="Log out" />
 }
 
 <p>Admin</p>

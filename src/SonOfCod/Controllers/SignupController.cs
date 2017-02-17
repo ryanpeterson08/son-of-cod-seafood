@@ -23,10 +23,10 @@ namespace SonOfCod.Controllers
             _db = db;
         }
 
-        public SignupController()
-        {
+        //public SignupController()
+        //{
 
-        }
+        //}
         
         public IActionResult Create()
         {

@@ -20,10 +20,10 @@ namespace SonOfCod.Controllers
             _db = db;
         }
 
-        public NewsletterController()
-        {
+        //public NewsletterController()
+        //{
 
-        }
+        //}
 
         public IActionResult Index()
         {

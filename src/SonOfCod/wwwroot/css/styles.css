@@ -1,0 +1,48 @@
+﻿body{
+    font-family: 'Poiret One', cursive;
+    background-color: #242628
+    
+}
+
+.container{
+    margin: auto;
+    font-family: 'Poiret One', cursive;
+}
+
+.news-item{
+    background-image: url(https://prettyinpixel.files.wordpress.com/2014/01/fontianewoodenwm.jpg);
+    border-radius: 5px;
+    color: ghostwhite;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.subscribers{
+    font-size: 20px;
+    color: ghostwhite
+}
+
+#title-pic{
+    width: 100%;
+}
+
+input{
+    color: ghostwhite;
+}
+
+img{
+    display: block;
+    width: 100%;
+}
+
+h2{
+    font-family: 'Poiret One', cursive;
+    color: ghostwhite;
+}
+
+p{
+    color: ghostwhite;
+}
+input.btn{
+    color: black;
+}

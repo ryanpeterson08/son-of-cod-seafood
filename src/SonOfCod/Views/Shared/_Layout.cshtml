@@ -1,15 +1,32 @@
 ﻿<!DOCTYPE html>
+@using System.Security.Claims
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-
-
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css" />
+    <title>@ViewBag.Title</title>
 </head>
 <body>
+    <nav class="blue darken-4">
+        <div class="nav-wrapper">
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                @if(User.Identity.IsAuthenticated)
+                {
+                    <li>@User.Identity.Name</li>
+
+                }
+                else
+                {
+                    <li>@Html.ActionLink("Register", "Register", "Account")</li>
+                    <li>@Html.ActionLink("Log in", "Login", "Account")</li>
+                }
+            </ul>
+        </div>
+    </nav>
     <div class="container center-align">
         @RenderBody()
     </div>

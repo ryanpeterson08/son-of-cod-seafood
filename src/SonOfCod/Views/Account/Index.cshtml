@@ -8,7 +8,7 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    <h2>Welcome to Son of Cod Fisheries!</h2>
+    <h2>Welcome to Fontaine Fisheries!</h2>
     <p>Hello @User.Identity.Name!</p>
     @Html.ActionLink("See the Newsletter", "Index", "Newsletter")<br />
     @Html.ActionLink("Signup for our Newsletter", "Create", "Signup")
