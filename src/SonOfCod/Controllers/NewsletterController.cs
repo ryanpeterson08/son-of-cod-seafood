@@ -11,7 +11,7 @@ namespace SonOfCod.Controllers
     
     public class NewsletterController : Controller
     {
-        private readonly ApplicationDbContext _db;
+        private readonly ApplicationDbContext _db = new ApplicationDbContext();
         private readonly UserManager<ApplicationUser> _userManager;
 
         public NewsletterController(UserManager<ApplicationUser> userManager, ApplicationDbContext db)
@@ -19,6 +19,12 @@ namespace SonOfCod.Controllers
             _userManager = userManager;
             _db = db;
         }
+
+        public NewsletterController()
+        {
+
+        }
+
         public IActionResult Index()
         {
             return View(_db.Newsletters.ToList());

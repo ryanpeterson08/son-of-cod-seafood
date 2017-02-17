@@ -23,6 +23,11 @@ namespace SonOfCod.Controllers
             _db = db;
         }
 
+        public AccountController()
+        {
+
+        }
+
         public IActionResult Index()
         {
             return View();
