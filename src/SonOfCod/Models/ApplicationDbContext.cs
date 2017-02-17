@@ -21,5 +21,6 @@ namespace SonOfCod.Models
 
         }
         public DbSet<Newsletter> Newsletters { get; set; }
+        public DbSet<Signup> Signups { get; set; }
     }
 }

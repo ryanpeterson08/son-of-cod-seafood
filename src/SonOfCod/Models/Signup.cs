@@ -7,13 +7,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SonOfCod.Models
 {
-    [Table("Newsletters")]
-    public class Newsletter
+    [Table("Signups")]
+    public class Signup
     {
+        
         [Key]
         public int Id { get; set; }
-        public string Body { get; set; }
-        public string FishOfTheMonth { get; set; }
-        
+        public string userEmail { get; set; }
+        public string userAddress { get; set; }
+        public virtual ICollection<ApplicationUser> Users { get; set; }
+              
     }
 }
