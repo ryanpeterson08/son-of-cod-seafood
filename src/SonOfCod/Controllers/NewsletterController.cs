@@ -21,7 +21,20 @@ namespace SonOfCod.Controllers
         }
         public IActionResult Index()
         {
+            return View(_db.Newsletters.ToList());
+        }
+
+        public IActionResult Create()
+        {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Newsletter newsletter)
+        {
+            _db.Newsletters.Add(newsletter);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         

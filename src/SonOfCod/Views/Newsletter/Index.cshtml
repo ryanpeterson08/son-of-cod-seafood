@@ -1,9 +1,19 @@
-﻿@{
+﻿@model IEnumerable<SonOfCod.Models.Newsletter>
+
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Son Of Cod Fisheries</h2>
+
+@foreach(var newsItem in Model)
+{
+    <ul>
+        <li>@Html.DisplayFor(modelItem => newsItem.Body)</li>
+        <li>@Html.DisplayFor(modelItem => newsItem.FishOfTheMonth)</li>
+    </ul>
+}
 
 @Html.ActionLink("Add a Newsletter", "Create")<br />
 @Html.ActionLink("Signup for the Newsletter", "Create", "Signup")

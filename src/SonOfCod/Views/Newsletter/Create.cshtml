@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model SonOfCod.Models.Newsletter
+
+<h2>Yes I want the latest Fish News!</h2>
+
+@using (Html.BeginForm())
+{
+    <label>Body of Letter</label>
+    @Html.TextBoxFor(model => model.Body)
+
+    <label>Fish of the Month!</label>
+    @Html.EditorFor(model => model.FishOfTheMonth)
+
+    <input type="submit" value="Create" />
+}
+
+@Html.ActionLink("Back to the Newsletter", "Index")<br />
+
+
+
