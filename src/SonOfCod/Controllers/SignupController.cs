@@ -33,5 +33,10 @@ namespace SonOfCod.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index", "Newsletter");
         }
+
+        public IActionResult Index()
+        {
+            return View(_db.Signups.ToList());
+        }
     }
 }
