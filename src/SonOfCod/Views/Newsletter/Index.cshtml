@@ -5,4 +5,14 @@
 
 <h2>Son Of Cod Fisheries</h2>
 
-@Html.ActionLink("Add a Newsletter", "Create")
+@Html.ActionLink("Add a Newsletter", "Create")<br />
+@Html.ActionLink("Signup for the Newsletter", "Create", "Signup")
+
+@using (Html.BeginForm("LogOff", "Account"))
+{
+
+    <input type="submit" class="btn btn-default" value="Log out" />
+}
+
+<p>Admin</p>
+@Html.ActionLink("Register new user", "Register", "Account")

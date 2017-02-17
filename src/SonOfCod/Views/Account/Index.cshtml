@@ -5,11 +5,13 @@
 
 @using System.Security.Claims
 
-<h2>Sign In to Son of Cod Fisheries!</h2>
-<hr />
+
 @if (User.Identity.IsAuthenticated)
 {
+    <h2>Welcome to Son of Cod Fisheries!</h2>
     <p>Hello @User.Identity.Name!</p>
+    @Html.ActionLink("See the Newsletter", "Index", "Newsletter")<br />
+    @Html.ActionLink("Signup for our Newsletter", "Create", "Signup")
     @using (Html.BeginForm("LogOff", "Account"))
     {
 
@@ -18,7 +20,9 @@
 }
 else
 {
+    <h2>Sign in to Son of Cod Fisheries</h2>
     <p>@Html.ActionLink("Register", "Register")</p>
     <p>@Html.ActionLink("Log in", "Login")</p>
+    
 }
 

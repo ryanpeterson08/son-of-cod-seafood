@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model SonOfCod.Models.Signup
+
+<h2>Yes I want the latest Fish News!</h2>
+
+@using (Html.BeginForm())
+{
+    <label>Email Address</label>
+    @Html.EditorFor(model => model.userEmail)
+
+    <label>Mailing Address</label>
+    @Html.EditorFor(model => model.userAddress)
+
+    <input type="submit" value="Create" />
+}
+
+@Html.ActionLink("Back to the Newsletter", "Index", "Newsletter")
