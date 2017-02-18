@@ -1,6 +1,6 @@
 # Son of Cod
 
-####  Web app prototype for Fontaine Fisheries Newsletter 2/10/2017
+####  Web app prototype for Fontaine Fisheries Newsletter 2/17/2017
 
 #### By Ryan Peterson
 
