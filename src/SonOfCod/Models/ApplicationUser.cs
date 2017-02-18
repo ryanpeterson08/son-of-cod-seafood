@@ -8,7 +8,7 @@ namespace SonOfCod.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        
+        public byte[] ProfilePicture { get; set; }
 
     }
 }

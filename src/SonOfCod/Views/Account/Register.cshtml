@@ -9,7 +9,22 @@
 
 <h2>Register a new user</h2>
 <hr />
-@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+<form method="post" asp-action="Register" asp-controller="Account" enctype="multipart/form-data">
+ 
+    <label for="email">Email: </label>
+    <input type="text" id="email" required name="email" />
+
+    <label for="picture">Profile Picture: </label>
+    <input type="file" id="picture" name="picture" class="btn blue darken-4"/><br />
+
+    <label for="password">Password: </label>
+    <input type="password" id="password" required name="password" />
+
+    @*<label for="passwordconfirm">Confirm Password: </label>
+        <input type="password" id="passwordconfirm" required name="passwordconfirm" />*@
+    <input type="submit" value="Register" class="btn blue darken-4"/>
+</form>
+@*@using (Html.BeginForm("Register", "Account", FormMethod.Post))
 {
     @Html.LabelFor(m => m.Email)
     @Html.TextBoxFor(m => m.Email)
@@ -21,4 +36,4 @@
     @Html.PasswordFor(m => m.ConfirmPassword)
 
     <input type="submit" value="Register" class="btn blue darken-4" />
-}
+}*@

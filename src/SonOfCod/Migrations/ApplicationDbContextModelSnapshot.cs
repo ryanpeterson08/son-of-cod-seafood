@@ -153,6 +153,8 @@ namespace SonOfCod.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed");
 
+                    b.Property<byte[]>("ProfilePicture");
+
                     b.Property<string>("SecurityStamp");
 
                     b.Property<int?>("SignupId");

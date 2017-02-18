@@ -52,6 +52,20 @@ namespace SonOfCod.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Signups",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    userAddress = table.Column<string>(nullable: true),
+                    userEmail = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Signups", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -83,13 +97,14 @@ namespace SonOfCod.Migrations
                     EmailConfirmed = table.Column<bool>(nullable: false),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
-                    NewsletterId = table.Column<int>(nullable: true),
                     NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
                     PasswordHash = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: true),
                     PhoneNumberConfirmed = table.Column<bool>(nullable: false),
+                    ProfilePicture = table.Column<byte[]>(nullable: true),
                     SecurityStamp = table.Column<string>(nullable: true),
+                    SignupId = table.Column<int>(nullable: true),
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     UserName = table.Column<string>(maxLength: 256, nullable: true)
                 },
@@ -97,9 +112,9 @@ namespace SonOfCod.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetUsers_Newsletters_NewsletterId",
-                        column: x => x.NewsletterId,
-                        principalTable: "Newsletters",
+                        name: "FK_AspNetUsers_Signups_SignupId",
+                        column: x => x.SignupId,
+                        principalTable: "Signups",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -200,11 +215,6 @@ namespace SonOfCod.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_NewsletterId",
-                table: "AspNetUsers",
-                column: "NewsletterId");
-
-            migrationBuilder.CreateIndex(
                 name: "EmailIndex",
                 table: "AspNetUsers",
                 column: "NormalizedEmail");
@@ -214,6 +224,11 @@ namespace SonOfCod.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUsers_SignupId",
+                table: "AspNetUsers",
+                column: "SignupId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -234,13 +249,16 @@ namespace SonOfCod.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Newsletters");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Newsletters");
+                name: "Signups");
         }
     }
 }

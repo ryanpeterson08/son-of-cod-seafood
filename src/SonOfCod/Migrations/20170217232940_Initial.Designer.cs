@@ -8,7 +8,7 @@ using SonOfCod.Models;
 namespace SonOfCod.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170217161957_Initial")]
+    [Migration("20170217232940_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -142,8 +142,6 @@ namespace SonOfCod.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
 
-                    b.Property<int?>("NewsletterId");
-
                     b.Property<string>("NormalizedEmail")
                         .HasAnnotation("MaxLength", 256);
 
@@ -156,7 +154,11 @@ namespace SonOfCod.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed");
 
+                    b.Property<byte[]>("ProfilePicture");
+
                     b.Property<string>("SecurityStamp");
+
+                    b.Property<int?>("SignupId");
 
                     b.Property<bool>("TwoFactorEnabled");
 
@@ -165,14 +167,14 @@ namespace SonOfCod.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NewsletterId");
-
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
                         .HasName("UserNameIndex");
+
+                    b.HasIndex("SignupId");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -189,6 +191,20 @@ namespace SonOfCod.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Newsletters");
+                });
+
+            modelBuilder.Entity("SonOfCod.Models.Signup", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("userAddress");
+
+                    b.Property<string>("userEmail");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Signups");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
@@ -230,9 +246,9 @@ namespace SonOfCod.Migrations
 
             modelBuilder.Entity("SonOfCod.Models.ApplicationUser", b =>
                 {
-                    b.HasOne("SonOfCod.Models.Newsletter")
+                    b.HasOne("SonOfCod.Models.Signup")
                         .WithMany("Users")
-                        .HasForeignKey("NewsletterId");
+                        .HasForeignKey("SignupId");
                 });
         }
     }
